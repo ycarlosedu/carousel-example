@@ -52,7 +52,7 @@ body {
 
 .section_heading {
   text-align: center;
-  font-size: 48px;
+  font-size: 32px;
   line-height: 120%;
   font-weight: bold;
 }
@@ -180,6 +180,7 @@ body {
   height: 16px;
   color: transparent;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .carousel_dots_item.active {
@@ -187,6 +188,12 @@ body {
 }
 
 /* RESPONSIVE */
+
+@media screen and (min-width: 375px) {
+  .section_heading {
+    font-size: 48px;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .goals {

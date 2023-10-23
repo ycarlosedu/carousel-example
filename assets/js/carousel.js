@@ -9,20 +9,37 @@ const carouselInitialItems = document.querySelectorAll(".carousel_img");
 const dotsParent = document.getElementById("dots");
 const carouselDots = () => document.querySelectorAll(".carousel_dots_item");
 
-const widthPerCard = 340;
+const widthPerCard = 380;
 let cardsToShow = 0;
 let currentPosition = 0;
-const lastPosition = carouselItems().length - 1
+const lastPosition = carouselInitialItems.length - 1
 const firstPosition = 0;
 
 const getCardsToShow = () => {
-  const newCards = Math.floor(window.innerWidth / widthPerCard);
+  toggleButtonsVisibility("block")
+  toggleDotsVisibility("block")
+  
+  let newCards = Math.floor(window.innerWidth / widthPerCard);
+
+  if (newCards < 1) newCards = 1;
+
+  if (newCards >= lastPosition) {
+    newCards = carouselInitialItems.length
+    toggleButtonsVisibility()
+    toggleDotsVisibility()
+  };
+
   if (newCards !== cardsToShow) {
     cardsToShow = newCards;
     removeAdjacentCards();
     createAdjacentCards();
     updateItems()
   }
+}
+
+const toggleButtonsVisibility = (display = "none") => {
+  nextButton.style.display = display;
+  previousButton.style.display = display;
 }
 
 const removeAdjacentCards = () => {
@@ -32,6 +49,8 @@ const removeAdjacentCards = () => {
 }
 
 const createAdjacentCards = () => {
+  if (cardsToShow === carouselInitialItems.length) return
+
   for (let index = 0; index < cardsToShow - 1; index++) {
     const itemToCopy = carouselInitialItems[index]
     const newItem = document.createElement("img")
@@ -45,7 +64,7 @@ const createAdjacentCards = () => {
 
 const updateItems = () => {
   carouselItems().forEach((element, index) => {
-    if (index >= currentPosition && index < currentPosition + cardsToShow) {
+    if ((index >= currentPosition && index < currentPosition + cardsToShow) || cardsToShow === carouselInitialItems.length) {
       return element.classList.add("visible")
     }
     element.classList.remove("visible")
@@ -58,10 +77,17 @@ const createDots = () => {
     const dot = document.createElement('li');
     dot.className = 'carousel_dots_item';
     dot.id = `dot_${id}`;
-    dot.textContent = id;
+    dot.textContent = `Ir para página ${id}`;
+    dot.onclick = () => handleNext(id);
     dotsParent.appendChild(dot)
   })
   updateDots()
+}
+
+const toggleDotsVisibility = (display = "none") => {
+  carouselDots().forEach((element) => {
+    element.style.display = display;
+  })
 }
 
 const updateDots = () => {
@@ -71,8 +97,8 @@ const updateDots = () => {
   })
 }
 
-const handleNext = () => {
-  currentPosition++;
+const handleNext = (newPosition) => {
+  currentPosition = newPosition ? newPosition - 1 : currentPosition + 1;
   if (currentPosition > lastPosition) {
     currentPosition = 0;
   }
@@ -90,9 +116,9 @@ const handlePrevious = () => {
 }
 
 window.onload = () => {
-  getCardsToShow()
   createDots()
+  getCardsToShow()
 };
-window.onresize = getCardsToShow;
-nextButton.onclick = handleNext;
-previousButton.onclick = handlePrevious;
+window.onresize = () => getCardsToShow();
+nextButton.onclick = () => handleNext();
+previousButton.onclick = () => handlePrevious();
