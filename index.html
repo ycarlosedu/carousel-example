@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./reset.css">
   <link rel="stylesheet" href="./index.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="./assets/js/carousel.js" type="module" defer></script>
 </head>
 <body>
   <section class="goals">
@@ -32,27 +33,29 @@
         </p>
       </div>
     </div>
-    <div class="carroussel">
-      <div class="carroussel_content">
-        <button id="carroussel_previous" class="carroussel_button left">
+    <div class="carousel">
+      <div class="carousel_content">
+        <button id="carousel_previous" class="carousel_button left">
           <i class="ph ph-arrow-left"></i>
         </button>
-        <img class="carroussel_img first" src="./assets/images/carroussel/first.png" alt="">
-        <!-- <img class="carroussel_img second" src="./assets/images/carroussel/second.png" alt="">
-        <img class="carroussel_img third" src="./assets/images/carroussel/third.png" alt="">
-        <img class="carroussel_img fourth" src="./assets/images/carroussel/fourth.png" alt="">
-        <img class="carroussel_img fifth" src="./assets/images/carroussel/fifth.png" alt=""> -->
-        <button id="carroussel_next" class="carroussel_button right">
+        <div id="carousel_images" class="carousel_images">
+          <img id="carousel_1" class="carousel_img" src="./assets/images/carousel/1.png" alt="">
+          <img id="carousel_2" class="carousel_img" src="./assets/images/carousel/2.png" alt="">
+          <img id="carousel_3" class="carousel_img" src="./assets/images/carousel/3.png" alt="">
+          <img id="carousel_4" class="carousel_img" src="./assets/images/carousel/4.png" alt="">
+          <img id="carousel_5" class="carousel_img" src="./assets/images/carousel/5.png" alt="">
+        </div>
+        <button id="carousel_next" class="carousel_button right">
           <i class="ph ph-arrow-right"></i>
         </button>
       </div>
-      <div class="carroussel_dots">
-        <ul class="carroussel_dots_list">
-          <li class="carroussel_dots_item active">1</li>
-          <li class="carroussel_dots_item">2</li>
-          <li class="carroussel_dots_item">3</li>
-          <li class="carroussel_dots_item">4</li>
-          <li class="carroussel_dots_item">5</li>
+      <div class="carousel_dots">
+        <ul class="carousel_dots_list">
+          <li id="dot_1" class="carousel_dots_item active">1</li>
+          <li id="dot_2" class="carousel_dots_item">2</li>
+          <li id="dot_3" class="carousel_dots_item">3</li>
+          <li id="dot_4" class="carousel_dots_item">4</li>
+          <li id="dot_5" class="carousel_dots_item">5</li>
         </ul>
       </div>
     </div>
