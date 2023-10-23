@@ -64,10 +64,11 @@ const createAdjacentCards = () => {
 
 const updateItems = () => {
   carouselItems().forEach((element, index) => {
+    element.classList.remove("visible")
+    element.offsetWidth // to fix animation when removing and adding class again
     if ((index >= currentPosition && index < currentPosition + cardsToShow) || cardsToShow === carouselInitialItems.length) {
       return element.classList.add("visible")
     }
-    element.classList.remove("visible")
   })
 }
 

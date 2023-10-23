@@ -133,10 +133,18 @@ body {
   width: 250px;
   height: 250px;
   display: none;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes fade {
+  0% { opacity: 0 },
+  100% { opacity: 1 }
 }
 
 .carousel_img.visible {
   display: block;
+  animation-name: fade;
+  animation-duration: 1s;
 }
 
 #carousel_1 {
