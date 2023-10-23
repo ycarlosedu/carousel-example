@@ -179,6 +179,7 @@ body {
   width: 16px;
   height: 16px;
   color: transparent;
+  transition: all 0.3s ease-in-out;
 }
 
 .carousel_dots_item.active {
