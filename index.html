@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Exemplo Carrossel Desafio I</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./index.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <section class="goals">
+    <div class="heading_group">
+      <h2 class="section_heading">
+        With your help, we accomplished these goals
+      </h2>
+      <div class="goals_description">
+        <p class="goals_achieved">
+          <span class="goals_highlighted">1400</span> 
+          Animals Rescued
+        </p>
+        <p class="goals_achieved">
+          <span class="goals_highlighted">$1.4 Million</span> 
+          Raised
+        </p>
+        <p class="goals_achieved">
+          <span class="goals_highlighted">940</span> 
+          Tails Found a Home
+        </p>
+      </div>
+    </div>
+    <div class="carroussel">
+      <div class="carroussel_content">
+        <button id="carroussel_previous" class="carroussel_button left">
+          <i class="ph ph-arrow-left"></i>
+        </button>
+        <img class="carroussel_img first" src="./assets/images/carroussel/first.png" alt="">
+        <!-- <img class="carroussel_img second" src="./assets/images/carroussel/second.png" alt="">
+        <img class="carroussel_img third" src="./assets/images/carroussel/third.png" alt="">
+        <img class="carroussel_img fourth" src="./assets/images/carroussel/fourth.png" alt="">
+        <img class="carroussel_img fifth" src="./assets/images/carroussel/fifth.png" alt=""> -->
+        <button id="carroussel_next" class="carroussel_button right">
+          <i class="ph ph-arrow-right"></i>
+        </button>
+      </div>
+      <div class="carroussel_dots">
+        <ul class="carroussel_dots_list">
+          <li class="carroussel_dots_item active">1</li>
+          <li class="carroussel_dots_item">2</li>
+          <li class="carroussel_dots_item">3</li>
+          <li class="carroussel_dots_item">4</li>
+          <li class="carroussel_dots_item">5</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
